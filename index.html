@@ -1,13 +1,45 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Popular Music depending on Location</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-<div id =mapspace><img></div>
+
+<body class="min-100-vh flex-column">
+    <header class="p-5 text-center text-white bg-primary">
+        <h1>Artist Location</h1>
+    </header>
+
+  <main class="flex-row justify-space-between">   
+    <div  class="col-12 col-md-4">
+        <div>
+          <h2>Search For a City:</h2>
+          <form id="cityName-Form" class="card-body">
+            <label class="form-label" for="CityName"></label>
+            <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
+            <button type="submit" class="btn" id="search-button">Search</button>
+            <input id="clearBtn" type="button" value="Clear">
+          </form>
+        </div>
+
+        <div>
+            <h3>Recent Searches:</h3>
+            <ul class="col-8 mb-3"></ul>
+        </div>
+    </div>
+
+    <div id="map-container">
+        
+    </div>
+
+    <div class="col-12 col-md-8">
+      <h2 class="subtitle">Showing Artist by Poularity: <span id="artists-city"></span></h2>
+      <div id="Artist-container" class="list-group"></div>
+    </div>
+  </main>
+
+    <script  src="./java.js"></script>
+    
 </body>
-<script src="script.js"></script>
 </html>
