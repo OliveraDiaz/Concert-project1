@@ -1,38 +1,29 @@
-const mapSpace =document.getElementById('map-container')
-const countrySearch = document.getElementById('cityname')
-const searchButton = document.getElementById('search-button')
-console.log(countrySearch.value)
-getApi2()
-let obj ={ 'united Kingdon': 'uk'}
 
-//http://api.musixmatch.com/ws/1.1/track.search?q_artist=justin bieber&page_size=3&page=1&s_track_rating=desc
-function getApi(){    
-  event.preventDefault()
-  let country = countrySearch.value
-requestUrl = ('https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country='+ country +'&apikey=14780e106eef4c8cc8559fc275070950')
-fetch(requestUrl)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-            console.log(data)
-            console.log(countrySearch.value)
-           
-    });}
+  
+  let map;
+    function initMap(){
+    let tx = {lat:31.0, lng:-100.0};
+    let map = new google.maps.Map(document.getElementById('map'), {zoom: 3, center: tx}
+    );
+    marker =new google.maps.Marker({position: tx, map: map, draggable: true})
+    lat = marker.getPosition().lat();
+    lng = marker.getPosition().lng();
+    console.log(lat)
+    console.log(lng)
+    marker.addListener('click',markerClick)
+  }
 
-    function getApi2(){
-    
-        requestUrl =  'https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&format=png&zoom=12&size=400x400&key=AIzaSyB3UbSsi87BYPQG_akKhzUbuUIpc5xWhZs'
-        
-        fetch(requestUrl)
-                .then(function (response) {
-                  console.log(response)
-                  map = document.createElement('img')
-                  map.setAttribute('src',response.url)
-              
-                  console.log(map)
-                  mapSpace.append(map)
-                })
- 
-                  ;}
-    searchButton.addEventListener('click',getApi)              
+
+initMap()
+
+
+  function markerClick(){
+    lat = marker.getPosition().lat();
+    lng = marker.getPosition().lng();
+    console.log(lat)
+    console.log(lng)
+  }
+
+  google.maps.event.addListener(marker, 'dragend', function(evt){
+    document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
+});
