@@ -1,17 +1,28 @@
 const mapSpace =document.getElementById('map-container');
  
 getApi2()
+let obj ={ 'united Kingdon': 'uk'}
 
 function getApi(){  
 preventDefault();  
-requestUrl =  'https://api.musixmatch.com/ws/1.1/chart.artists.gethttps://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&country=itapikey=14780e106eef4c8cc8559fc275070950'
+requestUrl =  'https://api.musixmatch.com/ws/1.1/chart.artists.gethttps://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&country=it&apikey=14780e106eef4c8cc8559fc275070950'
 fetch(requestUrl)
         .then(function (response) {
           return response.json();
         })
         .then(function (data) {
-            console.log(data)
-    });}
+            console.log(data);
+            console.log(countrySearch.value);
+
+            for (i = 0; i < data.length; i ++ 0) {
+
+
+
+
+            }
+           
+    });
+  }
 
 function getApi2(){
     
