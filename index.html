@@ -8,31 +8,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="min-100-vh flex-column bg-gradient-to-r from-gray-950 from from-30% via-blue-800 to-stone-950 to-70% ... text-violet-950">
-    <header class="p-5 text-center text-white bg-primary bg-gradient-to-r from-gray-950 to-transparent">
-        <h1>Live Music Finder</h1>
-        <h2>Artist Location</h2>
+<body class="min-100-vh flex-column bg-cover bg-no-repeat bg-center ..." style="background-image: url(Neon-Party-Background-HD.jpg)"  >
+    <header class="p-5 text-center flex rounded-2xl text-white bg-primary bg-gradient-to-r from-indigo-950 to-transparent ">
+      <img src="logo.webp" alt="bigfoot logo" class="logo ">  
+
+      <h1 class="font-extrabold font-mono text-2xl ">Live Music Finder</h1>
+     
     </header>
 
-  <main class="flex-row justify-space-between">   
-    <div  class="col-12 col-md-4">
-        <div>
+  <main class="flex-row justify-space-between bg-slate-50 m-10 rounded opacity-90">   
+    <div  class="col-12 col-md-4 m-5">
+
+        <div class="font-mono pl-10 p-10 text-lg ">
+          <h2>Artist Location</h2>
           <h2>Search For a City:</h2>
           <form id="cityName-Form" class="card-body">
             <label class="form-label" for="CityName"></label>
-            <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
-            <button type="submit" class="btn" id="search-button">Search</button>
-            <input id="clearBtn" type="button" value="Clear">
+            <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input rounded border-2 border-indigo-950" />
+            <button type="submit" class="btn bg-zinc-950 rounded hover:bg-indigo-950 text-white p-1" id="search-button">Search</button>
+            <input id="clearBtn" type="button" value="Clear" class="btn bg-zinc-950  hover:bg-indigo-950 rounded text-white p-1">
           </form>
         </div>
 
-        <div>
-            <h3>Recent Searches:</h3>
+        <div class="text-lg">
+            <h3 class="font-mono pl-10">Recent Searches:</h3>
             <ul class="col-8 mb-3"></ul>
         </div>
     </div>
 
-    <div id="map-container">
+    <div id="map-container" class="pl-10">
         
     </div>
 
