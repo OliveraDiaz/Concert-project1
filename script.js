@@ -10,7 +10,7 @@
     lng = marker.getPosition().lng();
     console.log(lat)
     console.log(lng)
-    marker.addListener('click',markerClick)
+   // marker.addListener('click',markerClick)
   }
 
 
@@ -25,5 +25,10 @@ initMap()
   }
 
   google.maps.event.addListener(marker, 'dragend', function(evt){
-    document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
+   // document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
+   lat = marker.getPosition().lat();
+    lng = marker.getPosition().lng();
+    console.log(marker.position)
+    console.log(lat)
+    console.log(lng)
 });
