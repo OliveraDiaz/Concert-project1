@@ -53,6 +53,7 @@ appendMusic(data)
       for (let i = 0 ; i < response.results[0].address_components.length; i++){
        if(response.results[0].address_components[i].types[0] == 'country'){
         countryCode = response.results[0].address_components[i].short_name
+        longName = response.results[0].address_components[i].long_name
         console.log(countryCode) 
         getApi(countryCode)
         
@@ -67,10 +68,14 @@ appendMusic(data)
  });
   }
   
-function appendMusic(data){ for (i =0 ; data.message.body.artist_list.length > i;i++)
+function appendMusic(data){ 
+  var countryNameEl = document.createElement('p')
+  countryNameEl.innerHTML = longName
+  artistContainer.append(countryNameEl)
+  for (i =0 ; data.message.body.artist_list.length > i;i++)
   { artistName= data.message.body.artist_list[i].artist.artist_name
   var artistNameEl = document.createElement('p')
-  artistNameEl.innerHTML = artistName
+  artistNameEl.innerHTML = '#'+ (i+1)+'   '+ artistName
   artistContainer.append(artistNameEl)
 }
 }
