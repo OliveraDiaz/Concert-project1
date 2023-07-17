@@ -2,6 +2,7 @@
 
 const countrySearch = document.getElementById('cityname')
 const searchButton = document.getElementById('search-button')
+const artistContainer = document.getElementById('Artist-container')
 var country = countrySearch.value 
 console.log(countrySearch.value)
 let map;
@@ -10,6 +11,7 @@ let map;
 //http://api.musixmatch.com/ws/1.1/track.search?q_artist=justin bieber&page_size=3&page=1&s_track_rating=desc
 function getApi(countryCode){  
   console.log(countryCode)
+  
   if (countryCode){
   var country = countryCode
   }else{ var country = countrySearch.value
@@ -21,7 +23,8 @@ fetch(requestUrl)
           return response.json();
         })
         .then(function (data) {
-            console.log(data)
+appendMusic(data)
+            console.log(data.message.body.artist_list[0].artist.artist_name)
             console.log(countrySearch.value)
            
     });}
@@ -64,7 +67,13 @@ fetch(requestUrl)
  });
   }
   
-
+function appendMusic(data){ for (i =0 ; data.message.body.artist_list.length > i;i++)
+  { artistName= data.message.body.artist_list[i].artist.artist_name
+  var artistNameEl = document.createElement('p')
+  artistNameEl.innerHTML = artistName
+  artistContainer.append(artistNameEl)
+}
+}
 
     searchButton.addEventListener('click',getApi)              
 
