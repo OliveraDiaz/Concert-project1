@@ -1,39 +1,91 @@
-const mapSpace =document.getElementById('map-container');
- 
-getApi2()
-let obj ={ 'united Kingdon': 'uk'}
+const countrySearch = document.getElementById('countryname')
+const searchButton = document.getElementById('search-button')
+const artistContainer = document.getElementById('Artist-container')
+var country = countrySearch.value 
+console.log(countrySearch.value)
+let map;
 
-function getApi(){  
-preventDefault();  
-requestUrl =  'https://api.musixmatch.com/ws/1.1/chart.artists.gethttps://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&country=it&apikey=14780e106eef4c8cc8559fc275070950'
+
+//http://api.musixmatch.com/ws/1.1/track.search?q_artist=justin bieber&page_size=3&page=1&s_track_rating=desc
+function getApi(countryCodes){  
+  console.log(countryCodes)
+  
+  if (countryCodes){
+  var country = countryCodes
+  }else{ var country = countrySearch.value
+    event.preventDefault()
+  }
+    requestUrl = ('https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country='+ country +'&apikey=14780e106eef4c8cc8559fc275070950')
 fetch(requestUrl)
         .then(function (response) {
           return response.json();
         })
         .then(function (data) {
-            console.log(data);
-            console.log(countrySearch.value);
-
-            for (i = 0; i < data.length; i ++ 0) {
-
-
-
-
-            }
+appendMusic(data)
+            console.log(data.message.body.artist_list[0].artist.artist_name)
+            console.log(countrySearch.value)
            
-    });
-  }
+    });}
 
-function getApi2(){
     
-requestUrl =  'https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&format=png&zoom=12&size=400x400&key=AIzaSyB3UbSsi87BYPQG_akKhzUbuUIpc5xWhZs'
+    function initMap(){
+    let tx = {lat:31.0, lng:-100.0};
+    let map = new google.maps.Map(document.getElementById('map'), {zoom: 3, center: tx}
+    );
+    marker =new google.maps.Marker({position: tx, map: map, draggable: true})
+    geocoder = new google.maps.Geocoder();
+    lat = marker.getPosition().lat();
+    lng = marker.getPosition().lng();
+    console.log(lat)
+    console.log(lng)
+   // marker.addListener('click',markerClick)
+   google.maps.event.addListener(marker, 'dragend', function(evt){
+    // document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
+    latlng = {lat:marker.getPosition().lat(),lng:marker.getPosition().lng() }
+    
+     console.log(latlng)
+     geocoder
+     .geocode({ location: latlng })
+     .then((response) => {
+      console.log(response.results[0].address_components)
+      for (let i = 0 ; i < response.results[0].address_components.length; i++){
+       if(response.results[0].address_components[i].types[0] == 'country'){
+        countryCode = response.results[0].address_components[i].short_name
+        longName = response.results[0].address_components[i].long_name
+        console.log(countryCode) 
         
-  fetch(requestUrl)
-      .then(function (response) {
-          console.log(response)
-           map= document.createElement('img')
-           map.setAttribute('src',response.url)
-           console.log(map)
-           mapSpace.append(map)
-          })
-  ;}
+       }
+
+      }
+      getApi(countryCodes);
+        
+        
+        
+      //console.log(response.results[0].address_components[4].short_name.length)
+    
+    })
+ });
+  }
+  
+function appendMusic(data){ 
+  var countryNameEl = document.createElement('p')
+  //countryNameEl.innerHTML = longName
+  artistContainer.append(countryNameEl)
+  for (i =0 ; data.message.body.artist_list.length > i;i++)
+  { artistName= data.message.body.artist_list[i].artist.artist_name
+  var artistNameEl = document.createElement('p')
+  artistNameEl.innerHTML = '#'+ (i+1)+'   '+ artistName
+  artistContainer.append(artistNameEl)
+}
+}
+
+function formSubmitHandler(event){
+  event.preventDefault();
+
+  var search = countrySearch.value.trim();
+  getApi(search);
+
+}
+searchButton.addEventListener('click', formSubmitHandler);           
+
+    

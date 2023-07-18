@@ -1,7 +1,17 @@
 #map{
-    size: 20x20 ;
+    height: 400px;
+    width: 50%;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    box-shadow: 10px 9px 20px -11px rgba(0,0,0,0.75);
+    border-radius: 4px 4px 4px 4px;
 }
 
 .logo {
-    height: 50px;
+    height: 80px;
+
+
+}
+main{
+    box-shadow: 10px 9px 20px -11px rgba(0,0,0,0.75);
 }
