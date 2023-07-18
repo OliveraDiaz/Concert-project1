@@ -70,16 +70,12 @@ function appendMusic(data,longName){
 }
 function formSubmitHandler(event){
   event.preventDefault();
-  if (!countrySearch){
-    var country = countryCode
-    getApi(country)
-  }
-  else{
+  if (countrySearch)
     var country = countrySearch.value.trim();
     console.log(countrySearch.value)
-getApi(country)
+    getApi(country)
 }
-  }
+  
 
   function clearContainer(){
     for ( let i = 0; i < artistNameEl.length; i++){
@@ -87,6 +83,7 @@ getApi(country)
       artistNameEl[i].innerHTML= ''
     }
   }
+
 searchButton.addEventListener('click', formSubmitHandler);
 clearButton.addEventListener('click', clearContainer);
 
