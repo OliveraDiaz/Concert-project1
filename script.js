@@ -1,6 +1,4 @@
-
-
-const countrySearch = document.getElementById('cityname')
+const countrySearch = document.getElementById('countryname')
 const searchButton = document.getElementById('search-button')
 const artistContainer = document.getElementById('Artist-container')
 const clearButton = document.getElementById('clearBtn')
@@ -67,13 +65,18 @@ function appendMusic(data,longName){
   artistContainer.append(artistNameEl)
 } 
 }
+
 function formSubmitHandler(event){
   event.preventDefault();
   if (countrySearch.value !== '')
     var country = countrySearch.value.trim();
     getCountries(country)
 }
+<<<<<<< HEAD
+ 
+=======
   
+>>>>>>> 5316e5d73d1ddf15e53df3cf9e7d7daa774c9dca
 
   function clearContainer(){  
      for (i=0; artistContainer.children.length > i; i++)
@@ -106,9 +109,12 @@ function formSubmitHandler(event){
     
   }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5316e5d73d1ddf15e53df3cf9e7d7daa774c9dca
 searchButton.addEventListener('click', formSubmitHandler);
 clearButton.addEventListener('click', clearContainer);
-
-            
-
     
+
+       
