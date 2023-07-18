@@ -74,7 +74,11 @@ function formSubmitHandler(event){
     console.log(countrySearch.value)
     getApi(country)
 }
+<<<<<<< HEAD
  
+=======
+  
+>>>>>>> 5316e5d73d1ddf15e53df3cf9e7d7daa774c9dca
 
   function clearContainer(){
     for ( let i = 0; i < artistNameEl.length; i++){
@@ -83,7 +87,10 @@ function formSubmitHandler(event){
     }
   }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5316e5d73d1ddf15e53df3cf9e7d7daa774c9dca
 searchButton.addEventListener('click', formSubmitHandler);
 clearButton.addEventListener('click', clearContainer);
     
