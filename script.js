@@ -80,6 +80,13 @@ function formSubmitHandler(event){
   //    console.log(artistContainer.children[i])
   //    artistContainer.artistNameEl.innerHTML ='';
   //   }
+  function clearContainer(){  
+     for (i=0; artistContainer.children.length > i; i++)
+     console.log(artistContainer.children[i])
+     artistContainer.artistNameEl.innerHTML =''
+    
+  
+    }
     
     function getCountries(country,lang = 'en') {
       console.log(country)
