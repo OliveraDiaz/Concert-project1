@@ -19,7 +19,7 @@ fetch(requestUrl)
 appendMusic(data, longName)
             console.log(data.message.body.artist_list[0].artist.artist_name)
             console.log(countrySearch.value)
-            
+            console.log(data.message.body.artist_list[0].artist.artist_name)
            
     });}
 
@@ -72,8 +72,14 @@ function formSubmitHandler(event){
     var country = countrySearch.value.trim();
     getCountries(country)
 }
+ 
   
 
+  // function clearContainer(){  
+  //    for (i=0; artistContainer.children.length > i; i++)
+  //    console.log(artistContainer.children[i])
+  //    artistContainer.artistNameEl.innerHTML ='';
+  //   }
   function clearContainer(){  
      for (i=0; artistContainer.children.length > i; i++)
      console.log(artistContainer.children[i])
@@ -107,8 +113,20 @@ function formSubmitHandler(event){
     
   }
 
+
 searchButton.addEventListener('click', formSubmitHandler);
 clearButton.addEventListener('click', clearContainer);
     
 
        
+// clearButton.addEventListener('click', clearContainer);
+    
+
+function clearAll() {
+  artistContainer.innerHTML = "";
+  countrySearch.value = "";
+
+}
+
+clearButton.addEventListener('click', clearAll);
+
