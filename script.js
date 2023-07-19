@@ -64,7 +64,7 @@ function appendMusic(data,longName){
   artistNameEl.innerHTML = '#'+ (i+1)+'   '+ artistName
   artistContainer.append(artistNameEl)
   artistNameEl.classList.add("w-4/6", "bg-zinc-950", "text-white", "drop-shadow-3xl", "mx-20", "my-2", "px-5", "py-2", "rounded-md", "font-mono", "text-lg");
-  countryNameEl.classList.add( "font-semibold", "w-3/5","text-center", "mr-auto", "mb-5", "px-5", "py-2","rounded-md", "text-3xl", "font-mono");
+  countryNameEl.classList.add("font-semibold", "w-3/5","text-center", "mx-auto", "mb-5", "px-5", "py-2","rounded-md", "text-3xl", "font-mono");
 } 
 }
 
