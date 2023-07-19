@@ -1,16 +1,14 @@
-
-
-const countrySearch = document.getElementById('cityname')
+const countrySearch = document.getElementById('countryname')
 const searchButton = document.getElementById('search-button')
 const artistContainer = document.getElementById('Artist-container')
 const clearButton = document.getElementById('clearBtn')
-var country = countrySearch.value 
 console.log(countrySearch.value)
 let map;
 
 
 //http://api.musixmatch.com/ws/1.1/track.search?q_artist=justin bieber&page_size=3&page=1&s_track_rating=desc
-function getApi(country,longName){ 
+function getApi(country,longName)
+{ 
     requestUrl = ('https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country='+ country +'&apikey=14780e106eef4c8cc8559fc275070950')
 fetch(requestUrl)
         .then(function (response) {
@@ -21,7 +19,7 @@ fetch(requestUrl)
 appendMusic(data, longName)
             console.log(data.message.body.artist_list[0].artist.artist_name)
             console.log(countrySearch.value)
-            
+            console.log(data.message.body.artist_list[0].artist.artist_name)
            
     });}
 
@@ -65,31 +63,70 @@ function appendMusic(data,longName){
   artistNameEl = document.createElement('p')
   artistNameEl.innerHTML = '#'+ (i+1)+'   '+ artistName
   artistContainer.append(artistNameEl)
-  
+} 
 }
-}
+
 function formSubmitHandler(event){
   event.preventDefault();
-  if (!countrySearch){
-    var country = countryCode
-    getApi(country)
-  }
-  else{
+  if (countrySearch.value !== '')
     var country = countrySearch.value.trim();
-    console.log(countrySearch.value)
-getApi(country)
+    getCountries(country)
 }
+ 
+  
+
+  // function clearContainer(){  
+  //    for (i=0; artistContainer.children.length > i; i++)
+  //    console.log(artistContainer.children[i])
+  //    artistContainer.artistNameEl.innerHTML ='';
+  //   }
+  function clearContainer(){  
+     for (i=0; artistContainer.children.length > i; i++)
+     console.log(artistContainer.children[i])
+     artistContainer.artistNameEl.innerHTML =''
+    
+  
+    }
+    
+    function getCountries(country,lang = 'en') {
+      console.log(country)
+      const A = 65
+      const Z = 90
+      const countryName = new Intl.DisplayNames([lang], { type: 'region' });
+      console.log(countryName)
+      const countries = {}
+      console.log(countries)
+      for(let i=A; i<=Z; ++i) {
+          for(let j=A; j<=Z; ++j) {
+              let code = String.fromCharCode(i) + String.fromCharCode(j)
+              let name = countryName.of(code)
+              if (name == country) {
+                 var longName = name
+                 country = code
+                 console.log(longName)
+                 console.log(country)
+                getApi(country,longName)
+              }
+          }
+      } 
+      return countries
+    
   }
 
-  function clearContainer(){
-    for ( let i = 0; i < artistNameEl.length; i++){
-      console.log(artistNameEl[i])
-      artistNameEl[i].innerHTML= ''
-    }
-  }
+
 searchButton.addEventListener('click', formSubmitHandler);
 clearButton.addEventListener('click', clearContainer);
-
-            
-
     
+
+       
+// clearButton.addEventListener('click', clearContainer);
+    
+
+function clearAll() {
+  artistContainer.innerHTML = "";
+  countrySearch.value = "";
+
+}
+
+clearButton.addEventListener('click', clearAll);
+
