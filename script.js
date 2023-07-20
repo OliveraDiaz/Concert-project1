@@ -2,7 +2,7 @@ const countrySearch = document.getElementById('countryname')
 const searchButton = document.getElementById('search-button')
 const artistContainer = document.getElementById('Artist-container')
 const clearButton = document.getElementById('clearBtn')
-console.log(countrySearch.value)
+
 let map;
 
 
@@ -82,13 +82,13 @@ function formSubmitHandler(event){
   //    console.log(artistContainer.children[i])
   //    artistContainer.artistNameEl.innerHTML ='';
   //   }
-  function clearContainer(){  
-     for (i=0; artistContainer.children.length > i; i++)
-     console.log(artistContainer.children[i])
-     artistContainer.artistNameEl.innerHTML =''
+  // function clearContainer(){  
+  //    for (i=0; artistContainer.children.length > i; i++)
+  //    console.log(artistContainer.children[i])
+  //    artistContainer.artistNameEl.innerHTML =''
     
   
-    }
+  //   }
     
     function getCountries(country,lang = 'en') {
       console.log(country)
@@ -117,7 +117,7 @@ function formSubmitHandler(event){
 
 
 searchButton.addEventListener('click', formSubmitHandler);
-clearButton.addEventListener('click', clearContainer);
+// clearButton.addEventListener('click', clearContainer);
     
 
        
