@@ -2,13 +2,15 @@ const countrySearch = document.getElementById('countryname')
 const searchButton = document.getElementById('search-button')
 const artistContainer = document.getElementById('Artist-container')
 const clearButton = document.getElementById('clearBtn')
+const mkrImage = 'https://img.icons8.com/material/48/000000/music--v2.png'
+//mkrImage.classList.add('mkrImage')
 console.log(countrySearch.value)
 let map;
 
 
 //http://api.musixmatch.com/ws/1.1/track.search?q_artist=justin bieber&page_size=3&page=1&s_track_rating=desc
 function getApi(country,longName)
-{   
+{   clearAll()
     requestUrl = ('https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country='+ country +'&apikey=14780e106eef4c8cc8559fc275070950')
 fetch(requestUrl)
         .then(function (response) {
@@ -28,17 +30,12 @@ appendMusic(data, longName)
     let tx = {lat:31.0, lng:-100.0};
     let map = new google.maps.Map(document.getElementById('map'), {zoom: 3, center: tx}
     );
-    marker =new google.maps.Marker({position: tx, map: map, draggable: true})
+    marker =new google.maps.Marker({position: tx, map: map, draggable: true, icon: mkrImage, size: 100})
     geocoder = new google.maps.Geocoder();
     lat = marker.getPosition().lat();
     lng = marker.getPosition().lng();
-    console.log(lat)
-    console.log(lng)
-   // marker.addListener('click',markerClick)
    google.maps.event.addListener(marker, 'dragend', function(evt){
-    // document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
     latlng = {lat:marker.getPosition().lat(),lng:marker.getPosition().lng() }
-     console.log(latlng)
      geocoder.geocode({ location: latlng })
      .then((response) => {
       console.log(response.results[0].address_components)
@@ -49,7 +46,7 @@ appendMusic(data, longName)
         console.log(countryCode) 
         getApi(countryCode, longName)
         }}
-      //console.log(response.results[0].address_components[4].short_name.length)
+  
     })
  });}
   
@@ -74,24 +71,12 @@ function formSubmitHandler(event){
     var country = countrySearch.value.trim();
     getCountries(country)
 }
- 
-  
-
-
-  function clearContainer(){  
-     for (i=0; artistContainer.children.length > i; i++)
-     console.log(artistContainer.children[i])
-     artistContainer.artistNameEl.innerHTML =''
-    
-  
-    }
     
     function getCountries(country,lang = 'en') {
       console.log(country)
       const A = 65
       const Z = 90
       const countryName = new Intl.DisplayNames([lang], { type: 'region' });
-      console.log(countryName)
       const countries = {}
       console.log(countries)
       for(let i=A; i<=Z; ++i) {
@@ -101,8 +86,6 @@ function formSubmitHandler(event){
               if (name == country) {
                  var longName = name
                  country = code
-                 console.log(longName)
-                 console.log(country)
                 getApi(country,longName)
               }
           }
@@ -113,17 +96,10 @@ function formSubmitHandler(event){
 
 
 searchButton.addEventListener('click', formSubmitHandler);
-clearButton.addEventListener('click', clearContainer);
     
-
-       
-// clearButton.addEventListener('click', clearContainer);
-    
-
 function clearAll() {
   artistContainer.innerHTML = "";
   countrySearch.value = "";
-
 }
 
 clearButton.addEventListener('click', clearAll);
