@@ -8,7 +8,7 @@ let map;
 
 //http://api.musixmatch.com/ws/1.1/track.search?q_artist=justin bieber&page_size=3&page=1&s_track_rating=desc
 function getApi(country,longName)
-{   
+{   clearAll()
     requestUrl = ('https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country='+ country +'&apikey=14780e106eef4c8cc8559fc275070950')
 fetch(requestUrl)
         .then(function (response) {
@@ -78,13 +78,11 @@ function formSubmitHandler(event){
   
 
 
-  function clearContainer(){  
+ /* function clearContainer(){  
      for (i=0; artistContainer.children.length > i; i++)
      console.log(artistContainer.children[i])
      artistContainer.artistNameEl.innerHTML =''
-    
-  
-    }
+    } */
     
     function getCountries(country,lang = 'en') {
       console.log(country)
@@ -113,7 +111,7 @@ function formSubmitHandler(event){
 
 
 searchButton.addEventListener('click', formSubmitHandler);
-clearButton.addEventListener('click', clearContainer);
+//clearButton.addEventListener('click', clearContainer);
     
 
        
@@ -123,7 +121,6 @@ clearButton.addEventListener('click', clearContainer);
 function clearAll() {
   artistContainer.innerHTML = "";
   countrySearch.value = "";
-
 }
 
 clearButton.addEventListener('click', clearAll);
