@@ -2,13 +2,13 @@ const countrySearch = document.getElementById('countryname')
 const searchButton = document.getElementById('search-button')
 const artistContainer = document.getElementById('Artist-container')
 const clearButton = document.getElementById('clearBtn')
-console.log(countrySearch.value)
+
 let map;
 
 
 //http://api.musixmatch.com/ws/1.1/track.search?q_artist=justin bieber&page_size=3&page=1&s_track_rating=desc
 function getApi(country,longName)
-{ 
+{   
     requestUrl = ('https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country='+ country +'&apikey=14780e106eef4c8cc8559fc275070950')
 fetch(requestUrl)
         .then(function (response) {
@@ -39,8 +39,7 @@ appendMusic(data, longName)
     // document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
     latlng = {lat:marker.getPosition().lat(),lng:marker.getPosition().lng() }
      console.log(latlng)
-     geocoder
-     .geocode({ location: latlng })
+     geocoder.geocode({ location: latlng })
      .then((response) => {
       console.log(response.results[0].address_components)
       for (let i = 0 ; i < response.results[0].address_components.length; i++){
@@ -58,6 +57,7 @@ function appendMusic(data,longName){
  var countryNameEl = document.createElement('p')
  countryNameEl.innerHTML = longName
   artistContainer.append(countryNameEl)
+  
   for (i =0 ; data.message.body.artist_list.length > i;i++)
   { artistName= data.message.body.artist_list[i].artist.artist_name
   artistNameEl = document.createElement('p')
@@ -77,18 +77,26 @@ function formSubmitHandler(event){
  
   
 
+<<<<<<< HEAD
   // function clearContainer(){  
   //    for (i=0; artistContainer.children.length > i; i++)
   //    console.log(artistContainer.children[i])
   //    artistContainer.artistNameEl.innerHTML ='';
   //   }
+  // function clearContainer(){  
+  //    for (i=0; artistContainer.children.length > i; i++)
+  //    console.log(artistContainer.children[i])
+  //    artistContainer.artistNameEl.innerHTML =''
+=======
+
   function clearContainer(){  
      for (i=0; artistContainer.children.length > i; i++)
      console.log(artistContainer.children[i])
      artistContainer.artistNameEl.innerHTML =''
+>>>>>>> eb2723e019fcd15279ae773bb7e57711bcbc8aa8
     
   
-    }
+  //   }
     
     function getCountries(country,lang = 'en') {
       console.log(country)
@@ -117,7 +125,7 @@ function formSubmitHandler(event){
 
 
 searchButton.addEventListener('click', formSubmitHandler);
-clearButton.addEventListener('click', clearContainer);
+// clearButton.addEventListener('click', clearContainer);
     
 
        
