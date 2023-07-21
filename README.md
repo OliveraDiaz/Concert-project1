@@ -11,10 +11,15 @@ by typing in a search box or selecting on a map, and be able to see the top 10 m
 Given a webpage with a form input
 
 When I search for a country 
+
 Then I am given a list of top artist from that country
+
 When I view the interaction map I can move cursor to another country 
+
 Then I can choose that country to display top artist
+
 When I view top artsit for that country 
+
 Then I am shown the artist name and rank
 
 ## Deployable Link
