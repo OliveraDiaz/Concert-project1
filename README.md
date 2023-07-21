@@ -30,9 +30,19 @@ https://oliveradiaz.github.io/Concert-project1/
      - Which are zoom in (+), zoom out (-) and the character icon  which will give you the street view of anywhere on the map that it is dragged to. 
   7. When you are done exploring and want to clear data, just click the clear button which will clear all input fields.  
 
-## Screenshots of Deployment Page 
+## Screenshots of Deployment Page
+
+### Screenshot of Homepage
 ![Screenshot (16)new](https://github.com/OliveraDiaz/Concert-project1/assets/132620047/e0f8d8d1-f90f-4830-8ec1-1f24a21a8660)
+
+### Screenshot of working page after search is committed
 ![Screenshot (17)new](https://github.com/OliveraDiaz/Concert-project1/assets/132620047/a7711e60-ac0f-4fcf-b138-e9ed88e8fe42)
+
+### Screenshot of character Icon on a country with a preview of streetview
 ![Screenshot (20)new](https://github.com/OliveraDiaz/Concert-project1/assets/132620047/3f793281-2c23-4fd1-82fd-ed6ae51848ac)
+
+### Screenshot of streetview
 ![Screenshot (19)new](https://github.com/OliveraDiaz/Concert-project1/assets/132620047/c0953bd8-86b8-4d9a-b76c-3eac58d2c31a)
-## Credits 
+
+## Credits
+ 
