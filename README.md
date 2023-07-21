@@ -31,5 +31,5 @@ Then I am shown the artist name and rank
   7. When you are done exploring and want to clear data, just click the clear button which will clear all input fields.  
 
 ## Screenshots of Deployment Page 
-
+![ScreenShot](<Screenshot (16)new.png>)
 ## Credits 
