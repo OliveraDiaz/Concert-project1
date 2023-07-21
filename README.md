@@ -8,7 +8,8 @@ by typing in a search box or selecting on a map, and be able to see the top 10 m
 
 
 ## Acceptance Criteria 
-Given a webpage with a form input 
+Given a webpage with a form input
+
 When I search for a country 
 Then I am given a list of top artist from that country
 When I view the interaction map I can move cursor to another country 
