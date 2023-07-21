@@ -31,5 +31,5 @@ Then I am shown the artist name and rank
   7. When you are done exploring and want to clear data, just click the clear button which will clear all input fields.  
 
 ## Screenshots of Deployment Page 
-
+![Screenshot (16)new](https://github.com/OliveraDiaz/Concert-project1/assets/132620047/e0f8d8d1-f90f-4830-8ec1-1f24a21a8660)
 ## Credits 
