@@ -31,6 +31,8 @@ https://oliveradiaz.github.io/Concert-project1/
   7. When you are done exploring and want to clear data, just click the clear button which will clear all input fields.  
 
 ## Screenshots of Deployment Page 
-
-
+![Screenshot (16)new](https://github.com/OliveraDiaz/Concert-project1/assets/132620047/e0f8d8d1-f90f-4830-8ec1-1f24a21a8660)
+![Screenshot (17)new](https://github.com/OliveraDiaz/Concert-project1/assets/132620047/a7711e60-ac0f-4fcf-b138-e9ed88e8fe42)
+![Screenshot (20)new](https://github.com/OliveraDiaz/Concert-project1/assets/132620047/3f793281-2c23-4fd1-82fd-ed6ae51848ac)
+![Screenshot (19)new](https://github.com/OliveraDiaz/Concert-project1/assets/132620047/c0953bd8-86b8-4d9a-b76c-3eac58d2c31a)
 ## Credits 
