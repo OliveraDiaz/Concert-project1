@@ -2,9 +2,9 @@
 
 
 ## User Story
-AS A user
-I WANT to see top artist for any given country
-SO THAT I can reference that country and their related music interest for as needed use 
+As a music enthusiast, 
+I want the ability select a country, 
+by typing in a search box or selecting on a map, and be able to see the top 10 music artists from that given country. 
 
 
 ## Acceptance Criteria 
@@ -17,7 +17,7 @@ When I view top artsit for that country
 Then I am shown the artist name and rank
 
 ## Deployable Link
-
+https://oliveradiaz.github.io/Concert-project1/
 
 ## Product Instructions
 
@@ -31,5 +31,6 @@ Then I am shown the artist name and rank
   7. When you are done exploring and want to clear data, just click the clear button which will clear all input fields.  
 
 ## Screenshots of Deployment Page 
+
 
 ## Credits 
