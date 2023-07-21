@@ -2,8 +2,10 @@
 
 
 ## User Story
-As a music enthusiast, 
-I want the ability select a country, 
+As a music enthusiast,
+
+I want the ability select a country,
+
 by typing in a search box or selecting on a map, and be able to see the top 10 music artists from that given country. 
 
 
